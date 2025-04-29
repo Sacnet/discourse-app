@@ -55,7 +55,7 @@ if st.button("Submit Survey"):
             "EE1": ee1, "EE2": ee2,
             "SI1": si1, "SI2": si2,
             "FC1": fc1, "FC2": fc2,
-            "BI1": bi1, "BI2": bi2
+            
         }
 
         df = pd.DataFrame([response])
