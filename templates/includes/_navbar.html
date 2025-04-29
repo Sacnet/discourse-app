@@ -1,0 +1,145 @@
+<script src="{{ url_for('static', filename='volt/vendor/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<style>
+  .preview-image {
+    height:200px;
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+ .colummu {
+   float: left;
+   width: 30%;
+   
+   color:#3182ce;
+   background-color: #fff;
+   margin-top:20px;
+   margin-left:10px;
+   border-radius: 10px;
+ }
+ .rowu {
+   width:100%;
+   margin:auto;
+   text-align:center;
+ }
+ @media screen and (max-width: 500px) {
+   .colummu {
+     width: 100%;
+   }
+ }
+  </style>
+<header class="header-global">
+   <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-theme-primary bg-white fixed-top"> 
+<div class="container-fluid">
+    <a class="navbar-brand" href="/"><img src="{{ url_for('static', filename='assets/img/logos.png')}}" style="width:350px;height:60px"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon">   
+        <i class="fas fa-bars" style="color:rgba(11,81,62,1); font-size:28px;"></i>
+    </span>
+    </button>  
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+     <ul class="nav navbar-nav ml-auto">
+      {% if session.logged_in %}
+      {% if session.user_role == "farmer" %}
+      <li class="nav-item ">
+        <a class="nav-link" id="active1" href="/farmer_index"><span class="fas fa-columns" > Dashboard</span></a></li>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="active2" href="/changepassword"><span class="fas fa-key" > Change Password</span></a></li>
+      </li>
+      {% endif %}
+      {% if session.user_role == "officer" %}
+      <li class="nav-item ">
+        <a class="nav-link" id="active1" href="/officer_index"><span class="fas fa-columns" > Dashboard</span></a></li>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="active2" href="/changepassword_officer"><span class="fas fa-key" > Change Password</span></a></li>
+      </li>
+      {% endif %}
+      {% if session.user_role == "admin" %}
+      <li class="nav-item ">
+        <a class="nav-link" id="active1" href="/admin_index"><span class="fas fa-columns" > Dashboard</span></a></li>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="active2" href="/changepassword_admin"><span class="fas fa-key" > Change Password</span></a></li>
+      </li>
+      {% endif %}
+        
+    {% else %}
+    <li class="nav-item">
+      <a class="nav-link" id="active6"  href="/"><span>Home</span></a></li>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="active6"  href="/aboutser"><span>About Us</span></a></li>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="active6"  href="/researchline"><span>Research</span></a></li>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="active6"  href="/publication"><span>Publications</span></a></li>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="active6"  href="/newsline"><span>News</span></a></li>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="active8"  href="/contact"><span>Contact Us</span></a></li>
+</li>  
+<li class="nav-item">
+  <a class="nav-link" id="active8"  href="/gallerywer"><span>Gallery</span></a></li>
+</li>  
+    <li class="nav-item">
+      <a class="nav-link" id="active6"  href="/login"><span class='btn-lg btn-outline-success my-2 my-sm-0' style="border-radius: 0px;color:rgb(22, 170, 131);background-color:#fff;border:2px solid rgb(22, 170, 131);font-size:18px;">Sign in</span></a></li>
+    </li>
+      <li class="nav-item">
+        <a class="nav-link" id="active5" href="/register"><span class='btn-lg btn-success' style="border-radius: 0px;background-color:rgb(22, 170, 131);font-size:18px;">Get Started</span></a></li>
+      </li>
+      
+         
+ {% endif %}
+	  </ul>
+	</div>
+	</div>
+</nav>
+</header>
+<script>
+   function funLogout () {
+swal.fire({
+  title: 'Are you sure?',
+  text: "Do you really want to logout?",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonText: 'Yes, Logout me!',
+  cancelButtonText: 'No!',
+  confirmButtonColor: '#d33',
+  cancelButtonColor: '#202124',
+  reverseButtons: true
+}).then((result) => {
+  if (result.isConfirmed) {
+              $.ajax({
+                    type: "POST",
+                    url: "/logout",
+                    success: function(response){
+                      if(response=="success")
+                      {
+                      console.log(response);
+    window.location.href = "/";
+                      }
+}
+                });  
+      swal.fire(
+      'Success!',
+      'You are successfully has been sign out from the system.',
+      'success'
+    )
+  } else if (
+    result.dismiss === Swal.DismissReason.cancel
+  ) {
+    swal.fire(
+      'Cancelled',
+      'Logout cancelled.',
+      'error'
+    )
+  }
+})
+}
+</script>

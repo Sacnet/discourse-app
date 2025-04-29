@@ -1,0 +1,100 @@
+{% extends 'researcher_dashboard.html' %}
+{% block body %}
+
+<div class="container">
+    <div class="col-12">
+        <div class="bg-white">
+            <div class="card" style="margin-top:5%;margin-left:10%;width:95%; padding-left:10%; padding-right:10%; padding-bottom: 10%;">
+                <div class="card-header" style="background:rgba(22, 170, 131);width:90%;margin-left:3%;margin-top:3%">
+                <h2 style="color:#fff;font-family: Montserrat;">Discourse Miner - Dashboard</h2>
+                
+            </div>
+            <div class="mb-4 mt-md-0">
+                <form method="post" action="/assessor_index">
+                    <div class="form-group">   
+                        <div class="form-group">
+                <input name="search" class="form-control input" style="width:60%; margin-left:15%; margin-top:5%; margin-bottom:5%" type="text" value="{{ search }}">
+                </div>
+                </div>
+                <div class="form-group">   
+                    <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-sm"  style="font-size:16px;background-color:rgb(22, 170, 131);font-family: Montserrat;
+                    font-weight: Bold;opacity: 1; float:right; margin-right:25%">Search</button>
+                </div>
+                </div>
+                </form>
+                
+            </div>
+            <div>
+                {% if search %}
+       
+        {% if resultssa %}
+        
+           
+                {% for row in resultssa %}
+                <h4 style="color:rgb(38, 163, 163); margin-left: 5%;"> "{{ row.fullStatement }}"</h4>
+                {% if row.disName=='Background' %}
+                The text "<span style="color:red">{{ row.fullStatement }}</span>" is a "{{ row.disName }}" discourse relation type. This background discourse relation text is that the state described in the second sentence or clause(&beta;) is as a 
+                result of circumstances under which the event described in the first sentence or clause (&alpha;) occurred. This can be regarded as an overlap between state and event. The general axiom background discourse relation is
+                <br>
+                <p style="text-align: center; color:rgb(237, 121, 121)">Background(&alpha; &beta;) &rarr; overlap(me(&alpha;), me(&beta;))</p>
+                <br> The state 
+                {% if row.disStatus=='1' %}
+                described in the first sentence or clause (&alpha;)  is the circumstance under which the event in the second sentence or clause (&beta;) occured in the text above.
+                {% else %}
+                described in the second sentence or clause (&beta;) is the circumstance under which the event in the first sentence or clause (&alpha;) occured in the text above.
+                {% endif %}
+               
+                <span><img src="{{ url_for('static', filename='background/' ~ row.img1) }}" alt="{{ name }}" style="width: 100%; height: 100px;"></span>
+                <br>
+                <span><img src="{{ url_for('static', filename='fig/' ~ row.img2) }}" alt="{{ name }}" style="width: 100%; height: 300px;"></span>
+                {% elif row.disName=='Elaboration' %}
+                The text "<span style="color:red">{{ row.fullStatement }}</span>" is a "{{ row.disName }}" discourse relation type. This elaboration discourse relation text indicate that the event result described in the first sentence or clause (&alpha;) is made possible in part by the event described in the second sentence or clause (&beta;).
+                The implies that the first sentence or clause in the text above is in the preparatory phase for the event described in the second sentence or clause in the text.  
+                <br>
+                The general axiom for elaboration discourse relation is
+                <p style="text-align: center; color:rgb(237, 121, 121)">Elaboration(&alpha; &beta;) &rarr; me(&alpha;) &prec; me(&beta;)</p>
+                <br>
+                <p style="text-align: center; color:rgb(237, 121, 121)"></p>(&alpha; &beta;) &wedge; info(&alpha; &beta;) &gt; prep(&alpha;)(&beta;)</p>
+                <span><img src="{{ url_for('static', filename='elaboration/' ~ row.img1) }}" alt="{{ name }}" style="width: 100%; height: 100px;"></span>
+                <br>
+                <span><img src="{{ url_for('static', filename='fig/' ~ row.img2) }}" alt="{{ name }}" style="width: 100%; height: 300px;"></span>
+                {% elif row.disName=='Narration' %}
+                The text "<span style="color:red">{{ row.fullStatement }}</span>" is a "{{ row.disName }}" discourse relation type. This narration discourse relation text is that the event described in the second sentence or clause (&beta;) occur as a consequence of the event that occured in the first sentence or clause in the text above
+                The general axiom for narration discourse relation is
+                <br>
+                <p style="text-align: center; color:rgb(237, 121, 121)">Narration(&alpha; &beta;) &rarr; me(&alpha;) &prec; me(&beta;)</p>
+                <br>
+                The implies that the first sentence or clause occurs before the second sentence or clause occurs in the text. 
+                <span><img src="{{ url_for('static', filename='narration/' ~ row.img1) }}" alt="{{ name }}" style="width: 100%; height: 100px;"></span>
+                <br>
+                <span><img src="{{ url_for('static', filename='fig/' ~ row.img2) }}" alt="{{ name }}" style="width: 100%; height: 300px;"></span>
+                {% elif row.disName=='Contrast' %}
+                The text "<span style="color:red">{{ row.fullStatement }}</span>" is a "{{ row.disName }}" discourse relation type. This Contrast discourse relation text is that one sentence or clause in the text above is in contrast to the other sentence or text.
+                <span><img src="{{ url_for('static', filename='contrast/' ~ row.img1) }}" alt="{{ name }}" style="width: 100%; height: 100px;"></span>
+                <br>
+                <span><img src="{{ url_for('static', filename='fig/' ~ row.img2) }}" alt="{{ name }}" style="width: 100%; height: 300px;"></span>
+                {% else %}
+                The text "<span style="color:red">{{ row.fullStatement }}</span>" is a "{{ row.disName }}" discourse relation type. This explanation discourse relation text is that the event described in the second sentence or clause (&beta;) explains why the event described in the first sentence or clause in the text occurs in text above
+                <br>
+                The general axiom for Explanation discourse relation is
+                <br>
+                <p style="text-align: center; color:rgb(237, 121, 121)">Explanation(&alpha; &beta;) &rarr; &not;me(&alpha;) &prec; me(&beta;)</p>
+                <br>
+                <span><img src="{{ url_for('static', filename='explanation/' ~ row.img1) }}" alt="{{ name }}" style="width: 100; height: 100px;"></span>
+                <br>
+                <span><img src="{{ url_for('static', filename='fig/' ~ row.img2) }}" alt="{{ name }}" style="width: 100%; height: 300px;"></span>
+                {% endif %}
+
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No results found.</p>
+        {% endif %}
+    {% endif %}
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

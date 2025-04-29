@@ -1,0 +1,204 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<nav class="navbar navbar-expand-md navbar-light">
+  <div class="container">
+      <a class="navbar-brand" href="/" style="font-size:30px;color:rgb(22, 170, 131);font-family: Montserrat;
+                        font-weight: Bold;opacity: 1;">DiscApp</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav" >
+          <ul class="navbar-nav ms-auto" style="float:right">
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="about_us.html">About Us</a>
+              </li>
+             
+              <li class="nav-item">
+                  <a class="nav-link" href="contact.html">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="report.html">Report</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/register">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Sign In</a>
+            </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+<section class="d-flex align-items-center" style="background-image:url('static/assets/img/carousel/caros5.png');
+background-color: #cccccc; background-size: cover;background-position: center;  display: flex;flex-direction: column;justify-content: center;align-items: center;font-weight: bold;height: 80vh;">
+    
+    
+                <div class="card" style="margin-top:5%;margin-left:5%;width:60%; padding-left:10%; padding-right:10%; padding-bottom: 10%;">
+                    <div class="card-header" style="background:rgba(22, 170, 131);width:90%;margin-left:3%;margin-top:3%">
+                    <h2 style="color:#fff;font-family: Montserrat; text-align: center;font-size: 25px;">Discourse Mining App for Knowledge Discovery in Text</h2>
+                    </div>
+                <div class="card-body">
+                    <form method="post" action="/">
+                        <div class="form-group">   
+                           
+                    <input name="search" class="form-control input" style="width:60%; margin-left:15%; margin-top:5%; margin-bottom:5%" type="text" value="{{ search }}">
+                    
+                    </div>
+                    <div class="form-group">   
+                        
+                    <button type="submit" class="btn btn-primary btn-sm"  style="font-size:16px;background-color:rgb(22, 170, 131);font-family: Montserrat;
+                        font-weight: Bold;opacity: 1; float:right; margin-right:25%" data-bs-toggle="modal" data-bs-target="#resultModal">Search</button>
+                    
+                    </div>
+
+                    </form>
+                   </div>
+                   </div>
+                   
+                   </section>
+                   <section>
+                    <div class="container">
+                        <div class="col-12">
+                            <div class="bg-white">
+                                <div class="card" style="margin-top:5%;margin-left:10%;width:95%; padding-left:10%; padding-right:10%; padding-bottom: 10%;height:auto">
+                    {% if search %}
+           
+            {% if resultssa %}
+            
+               
+                    {% for row in resultssa %}
+                    <h4 style="color:rgb(38, 163, 163); margin-left: 5%;"> "{{ row.fullStatement }}"</h4>
+                    {% if row.disName=='Background' %}
+                    The text "<span style="color:red">{{ row.fullStatement }}</span>" is a "{{ row.disName }}" discourse relation type. This background discourse relation text is that the state described in the second sentence or clause(&beta;) is as a 
+                    result of circumstances under which the event described in the first sentence or clause (&alpha;) occurred. This can be regarded as an overlap between state and event. The general axiom background discourse relation is
+                    <br>
+                    <p style="text-align: center; color:rgb(237, 121, 121)">Background(&alpha; &beta;) &rarr; overlap(me(&alpha;), me(&beta;))</p>
+                    <br> The state 
+                    {% if row.disStatus=='1' %}
+                    described in the first sentence or clause (&alpha;)  is the circumstance under which the event in the second sentence or clause (&beta;) occured in the text above.
+                    {% else %}
+                    described in the second sentence or clause (&beta;) is the circumstance under which the event in the first sentence or clause (&alpha;) occured in the text above.
+                    {% endif %}
+                   
+                    <span><img src="{{ url_for('static', filename='background/' ~ row.img1) }}" alt="{{ name }}" style="width: 100%; height: 100px;"></span>
+                    <br>
+                    <span><img src="{{ url_for('static', filename='fig/' ~ row.img2) }}" alt="{{ name }}" style="width: 100%; height: 300px;"></span>
+                    {% elif row.disName=='Elaboration' %}
+                    The text "<span style="color:red">{{ row.fullStatement }}</span>" is a "{{ row.disName }}" discourse relation type. This elaboration discourse relation text indicate that the event result described in the first sentence or clause (&alpha;) is made possible in part by the event described in the second sentence or clause (&beta;).
+                    The implies that the first sentence or clause in the text above is in the preparatory phase for the event described in the second sentence or clause in the text.  
+                    <br>
+                    The general axiom for elaboration discourse relation is
+                    <p style="text-align: center; color:rgb(237, 121, 121)">Elaboration(&alpha; &beta;) &rarr; me(&alpha;) &prec; me(&beta;)</p>
+                    <br>
+                    <p style="text-align: center; color:rgb(237, 121, 121)"></p>(&alpha; &beta;) &wedge; info(&alpha; &beta;) &gt; prep(&alpha;)(&beta;)</p>
+                    <span><img src="{{ url_for('static', filename='elaboration/' ~ row.img1) }}" alt="{{ name }}" style="width: 100%; height: 100px;"></span>
+                    <br>
+                    <span><img src="{{ url_for('static', filename='fig/' ~ row.img2) }}" alt="{{ name }}" style="width: 100%; height: 300px;"></span>
+                    {% elif row.disName=='Narration' %}
+                    The text "<span style="color:red">{{ row.fullStatement }}</span>" is a "{{ row.disName }}" discourse relation type. This narration discourse relation text is that the event described in the second sentence or clause (&beta;) occur as a consequence of the event that occured in the first sentence or clause in the text above
+                    The general axiom for narration discourse relation is
+                    <br>
+                    <p style="text-align: center; color:rgb(237, 121, 121)">Narration(&alpha; &beta;) &rarr; me(&alpha;) &prec; me(&beta;)</p>
+                    <br>
+                    The implies that the first sentence or clause occurs before the second sentence or clause occurs in the text. 
+                    <span><img src="{{ url_for('static', filename='narration/' ~ row.img1) }}" alt="{{ name }}" style="width: 100%; height: 100px;"></span>
+                    <br>
+                    <span><img src="{{ url_for('static', filename='fig/' ~ row.img2) }}" alt="{{ name }}" style="width: 100%; height: 300px;"></span>
+                    {% elif row.disName=='Contrast' %}
+                    The text "<span style="color:red">{{ row.fullStatement }}</span>" is a "{{ row.disName }}" discourse relation type. This Contrast discourse relation text is that one sentence or clause in the text above is in contrast to the other sentence or text.
+                    <span><img src="{{ url_for('static', filename='contrast/' ~ row.img1) }}" alt="{{ name }}" style="width: 100%; height: 100px;"></span>
+                    <br>
+                    <span><img src="{{ url_for('static', filename='fig/' ~ row.img2) }}" alt="{{ name }}" style="width: 100%; height: 300px;"></span>
+                    {% else %}
+                    The text "<span style="color:red">{{ row.fullStatement }}</span>" is a "{{ row.disName }}" discourse relation type. This explanation discourse relation text is that the event described in the second sentence or clause (&beta;) explains why the event described in the first sentence or clause in the text occurs in text above
+                    <br>
+                    The general axiom for Explanation discourse relation is
+                    <br>
+                    <p style="text-align: center; color:rgb(237, 121, 121)">Explanation(&alpha; &beta;) &rarr; &not;me(&alpha;) &prec; me(&beta;)</p>
+                    <br>
+                    <span><img src="{{ url_for('static', filename='explanation/' ~ row.img1) }}" alt="{{ name }}" style="width: 100; height: 100px;"></span>
+                    <br>
+                    <span><img src="{{ url_for('static', filename='fig/' ~ row.img2) }}" alt="{{ name }}" style="width: 100%; height: 300px;"></span>
+                    {% endif %}
+    
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No results found.</p>
+            {% endif %}
+        {% endif %}
+                   </div>
+                <div>
+    
+</div>
+</section>
+        <script>
+            var btnCapture = document.getElementById("btn-capture");
+            var stream = document.getElementById("stream");
+            var capture = document.getElementById("capture");
+            var snapshot = document.getElementById("snapshot");
+            var cameraStream = null;
+            
+            btnCapture.addEventListener( "click", captureSnapshot );
+            
+            function startStreaming() {
+            
+            var mediaSupport = 'mediaDevices' in navigator;
+            
+            if( mediaSupport && null == cameraStream ) {
+            
+            navigator.mediaDevices.getUserMedia( { video: true } )
+            .then( function( mediaStream ) {
+              cameraStream = mediaStream;
+              stream.srcObject = mediaStream;
+              stream.play();
+            })
+            .catch( function( err ) {
+              console.log( "Unable to access camera: " + err );
+            });
+            }
+            else {
+            alert( 'Your browser does not support media devices.' );
+            return;
+            }
+            }
+            
+            function stopStreaming() {
+            if( null != cameraStream ) {
+            var track = cameraStream.getTracks()[ 0 ];
+            track.stop();
+            stream.load();
+            cameraStream = null;
+            }
+            }
+            
+            function captureSnapshot() {
+            if( null != cameraStream ) {
+            var ctx = capture.getContext( '2d' );
+            var img = new Image();
+            ctx.drawImage( stream, 0, 0, capture.width, capture.height );
+            img.src		= capture.toDataURL( "image/png" );
+            img.width	= 370;
+            img.height	= 320;
+            //console.log(capture.toDataURL( "image/png" ));
+            snapshot.innerHTML = '';
+            snapshot.appendChild( img );
+            var d1 = capture.toDataURL("image/png");
+            var res = d1.replace("data:image/png;base64,", "");
+            console.log(res);
+            snapshot.innerHTML = '';
+            snapshot.appendChild( img );
+            $("#image_hidden").val(res)    
+            }
+            }
+            window.onload = function() {
+            startStreaming();
+            captureSnapshot();
+            }
+            </script>
+    {% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'adminpossed_dashboard.html' %}
+{% block body %}
+<div class="container">
+    <div class="col-12">
+        <div class="bg-white">
+            <div class="card" style="margin:10%;width:100%">
+            <div class="card-header" style="background:rgba(22, 170, 131)">
+                <h2 style="color:#fff;font-family: Montserrat;">Discourse Text Archive - Dashboard</h2>
+                
+            </div>
+                      
+                <div class="card-body">
+                    <div style="overflow-x:auto;">
+            <table id="empTable" class="table table-striped table-bordered display dataTable" style="width:50%; font-size: 12px;">
+                <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>Text</th>
+                        <th>Submitted by</th>
+                        <th>Date Submitted</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for data in crustat %}
+                    <tr>
+                        <td>{{loop.index}}</td>
+                        <td>{{data.fulltxt}}</td>
+                        <td>{{data.submitted}}</td>
+                        <td>{{data.created_on}}</td>
+                        <td>{% if data.stated==1 %}
+                            <span style="color:green">Already Used</span>
+                        {% else %}
+                        <span style="color:red"> Not Yet</span>
+                        {% endif %}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>S/N</th>
+                        <th>Text</th>
+                        <th>Submitted By</th>
+                        <th>Date Submitted</th>
+                        <th>Status</th>
+                    </tr>
+                </tfoot>
+            </table>
+            </div><br>
+                
+            </div>
+            </div>
+    </div>
+    </div>
+</div>
+{% endblock %}

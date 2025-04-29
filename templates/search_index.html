@@ -1,0 +1,12 @@
+
+
+<div class="container">
+    {% for data in resultssa %}
+    <div>
+        {{ data.fullText}}
+        {{ data.disName}}
+    </div>
+    {% else %}
+    <p>No results found.</p>
+    {% endfor %}
+</div>

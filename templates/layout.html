@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Home | DiscApp</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+
+<!-- Favicon -->
+
+<link rel="icon" sizes="32x32" href="{{ url_for('static', filename='assets/img/favicon/icons.png') }}">
+
+
+
+
+<!-- Fontawesome -->
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='vendor/@fortawesome/fontawesome-free/css/all.min.css') }}">
+
+<!-- Pixel CSS -->
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/pixel.css') }}">
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='engine1/style.css') }}"/>
+	<script type="text/javascript" src="url_for('static', filename='engine1/jquery.js')"></script>
+{% block head %}{% endblock %}
+  </head>
+  <body>
+    
+    <!--<div class="container">-->
+      
+      {% block body %}
+          {% include 'includes/_messages.html' %}
+      
+      {% endblock %}
+    <!--</div>-->
+
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- Core -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="{{ url_for('static', filename='vendor/popper.js/dist/umd/popper.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/headroom.js/dist/headroom.min.js') }}"></script>
+
+<!-- Vendor JS -->
+<script src="{{ url_for('static', filename='vendor/onscreen/dist/on-screen.umd.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/nouislider/distribute/nouislider.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/waypoints/lib/jquery.waypoints.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/jarallax/dist/jarallax.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/jquery.counterup/jquery.counterup.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/jquery-countdown/dist/jquery.countdown.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/prismjs/prism.js') }}"></script>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- pixel JS -->
+<script src="{{ url_for('static', filename='assets/js/pixel.js') }}"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <footer id="sticky-footer" class="footer">
+    
+    <div class='container-fluid' style='border-top: 2px solid rgba(22, 170, 131); border-right:3%; border-left:3%'>
+    <div class="row">
+      <div class="col-lg col-md col-sm">
+        <p class="font-weight-bold font-medium mb-0" style="font-family: Montserrat;font-size:16px; margin-left:3%;color:rgba(11,81,62,1);">Discourse Mining App and<br> Discourse Sentence Archive 
+          </p>
+      </div>
+      <div class="col-lg col-md col-sm">
+        <p class="font-weight-bold font-medium mb-0" style="font-family: Montserrat;font-size:16px; margin-left:3%;color:rgba(11,81,62,1)">Copyright © TP18/19/H/0859<br>
+          <span class="current-year"><script>document.write(new Date().getFullYear())</script>
+          </span>. All rights reserved.</p>
+      </div>
+      <div class="col-lg col-md col-sm">
+        <section class="mb-4">
+          <!-- Facebook -->
+          <a
+             class="btn btn-link btn-floating btn-lg text-dark m-1"
+             href="#!"
+             role="button"
+             data-mdb-ripple-color="dark"
+             ><i class="fab fa-facebook-f" style="color:rgba(11,81,62,1)"></i
+            ></a>
+
+          <!-- Twitter -->
+          <a
+             class="btn btn-link btn-floating btn-lg text-dark m-1"
+             href="#!"
+             role="button"
+             data-mdb-ripple-color="dark"
+             ><i class="fab fa-twitter" style="color:rgba(11,81,62,1)"></i
+            ></a>
+
+          <!-- Google -->
+          <a
+             class="btn btn-link btn-floating btn-lg text-dark m-1"
+             href="#!"
+             role="button"
+             data-mdb-ripple-color="dark"
+             ><i class="fab fa-google" style="color:rgba(11,81,62,1)"></i
+            ></a>
+
+          <!-- Instagram -->
+          <a
+             class="btn btn-link btn-floating btn-lg text-dark m-1"
+             href="#!"
+             role="button"
+             data-mdb-ripple-color="dark"
+             ><i class="fab fa-instagram" style="color:rgba(11,81,62,1)"></i
+            ></a>
+
+          <!-- Linkedin -->
+          <a
+             class="btn btn-link btn-floating btn-lg text-dark m-1"
+             href="#!"
+             role="button"
+             data-mdb-ripple-color="dark"
+             ><i class="fab fa-linkedin" style="color:rgba(11,81,62,1)"></i
+            ></a>
+          <!-- Github -->
+          
+        </section>
+      </div>
+    </div>
+  </div>
+  
+</footer>
+</body>
+</html>

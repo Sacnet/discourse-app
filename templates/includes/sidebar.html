@@ -1,0 +1,124 @@
+{% if session.logged_in %}
+{% if session.role == "admin" %}
+<nav class="pcoded-navbar menupos-fixed menu-light ">
+  <div
+    class="navbar-wrapper  ">
+    <div class="navbar-content scroll-div "
+      >
+      <ul class="nav pcoded-inner-navbar ">
+        <li class="nav-item">
+          <a href="/admin_index" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span
+              class="pcoded-mtext">Dashboard</span></a>
+        </li>
+        <li class="nav-item">
+          <a href="/text_index" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span
+              class="pcoded-mtext">Text Archive</span></a>
+        </li>
+        <li class="nav-item">
+          <a href="#" onclick="return funLogout()" class="nav-link "><span class="pcoded-micon"><i class="feather icon-map"></i></span><span
+              class="pcoded-mtext">Logout</span></a>
+        </li>        
+      </ul>
+      
+      
+      
+    </div>
+  </div>
+</nav>
+{% endif %}
+{% if session.role == "researcher" %}
+<nav class="pcoded-navbar menupos-fixed menu-light ">
+  <div
+    class="navbar-wrapper  ">
+    <div class="navbar-content scroll-div "
+      >
+      <ul class="nav pcoded-inner-navbar ">
+        <li class="nav-item">
+          <a href="/researcher_index" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span
+              class="pcoded-mtext">Dashboard</span></a>
+        </li>
+        <li class="nav-item">
+          <a href="/text_note" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span
+              class="pcoded-mtext">Text Archives</span></a>
+        </li>
+        
+       
+        
+        <li class="nav-item pcoded-hasmenu">
+          <a href="#" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span
+              class="pcoded-mtext">Profile</span></a>
+          <ul class="pcoded-submenu">
+            <li><a href="/changepassword_researcher" target="_blank">Change Password</a></li>
+            
+            <li><a href="/changepassword_admin" target="_blank">Update Profile</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="#" onclick="return funLogout()" class="nav-link "><span class="pcoded-micon"><i class="feather icon-map"></i></span><span
+              class="pcoded-mtext">Logout</span></a>
+        </li>
+        
+      </ul>
+      
+      
+      
+    </div>
+  </div>
+</nav>
+{% endif %}
+{% if session.role == "user" %}
+<nav class="pcoded-navbar menupos-fixed menu-light ">
+  <div
+    class="navbar-wrapper  ">
+    <div class="navbar-content scroll-div "
+      >
+      <ul class="nav pcoded-inner-navbar ">
+        <li class="nav-item">
+          <a href="/pinvesti_index" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span
+              class="pcoded-mtext">Dashboard</span></a>
+        </li>
+        <li class="nav-item">
+          <a href="/pinvesti_full" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span
+              class="pcoded-mtext">Project</span></a>
+        </li>
+        
+       
+       
+        <li class="nav-item pcoded-hasmenu">
+          <a href="#" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span
+              class="pcoded-mtext">Profile</span></a>
+          <ul class="pcoded-submenu">
+            <li><a href="/changepassword_farmer" target="_blank">Change Password</a></li>
+            
+            <li><a href="#" target="_blank">Update Profile</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="#" onclick="return funLogout()" class="nav-link "><span class="pcoded-micon"><i class="feather icon-map"></i></span><span
+              class="pcoded-mtext">Logout</span></a>
+        </li>
+        
+      </ul>
+      
+      
+      
+    </div>
+  </div>
+</nav>
+{% endif %}
+{% else %}
+<nav>
+  <div
+    class="navbar-wrapper  ">
+    <div class="navbar-content scroll-div "
+      >
+      <ul class="nav pcoded-inner-navbar ">
+  <li class="nav-item">
+    <a href="#" onclick="return funLogout()" class="nav-link "><span class="pcoded-micon"><i class="feather icon-map"></i></span><span
+        class="pcoded-mtext">Logout</span></a>
+  </li>
+  </ul>
+  </div>
+  </div>
+</nav>
+{% endif %}

@@ -1,0 +1,90 @@
+{% extends 'adminpossed_dashboard.html' %}
+{% block body %}
+<style type="text/css">
+    #my-forms input { display:none }
+    #my-forms.f-Input input[name=Input],
+    #my-forms.f-Output input[name=Output],
+    #my-forms.f-Summary input[name=Summary] { display:block }
+</style>
+<div class="container">
+    <div class="col-12">
+        <div class="bg-white">
+            <div class="card" style="margin:10%;width:100%">
+            <div class="card-header" style="background:rgba(22, 170, 131)">
+                <h2 style="color:#fff;font-family: Montserrat;">View Assigned Concept Note - Dashboard</h2>
+                
+            </div>
+                      
+                <div class="card-body">
+                    {% include 'includes/_messages.html' %}
+                    <form method="post" action="/assignassessor_index" enctype="multipart/form-data" style="width:60%;margin-left:15%">
+                        
+                    <div class="row">
+                    <div class="form-group col">
+                            <label>Thematic Area</label>
+                            <select class="form-control" onchange="toggleLGA(this);" id="state" name="picategory">
+                                <option value="" class="selected">Select category....</option>
+                                <option value="Cross_Cutting">Cross Cutting</option>
+                                <option value="Humanities_and_Social_Sciences">Humanities and Social Sciences</option>
+                                <option value="Sciences_Technology_and_Innovation">Sciences, Technology and Innovation</option>
+
+                            </select>
+                        </div>
+
+                    </div>
+                    
+                    <div class="row">
+                    <div class="form-group col">
+                    <label for="name">Research Category</label>
+                    
+
+                    <select name="piresarea" id="lga" class="form-control select-lga" required>
+                </select>
+                  </div>
+              </div>
+              <div class="row">
+                    <div class="form-group col">
+                            <label>Assessor Group</label>
+                            <select class="form-control"  name="group">
+                                <option value="" class="selected">Select group....</option>
+                                <option value="1">Group 1</option>
+                                <option value="2">Group 2</option>
+                                
+                            </select>
+                        </div>
+
+                    </div>
+            <div class="row">
+                    <div class="form-group col">
+                            <label>Assessor Rating</label>
+                            <select class="form-control"  name="rating">
+                                <option value="" class="selected">Select rating....</option>
+                                <option value="1">Rating 1</option>
+                                <option value="2">Rating 2</option>
+                                <option value="3">Rating 3</option>
+                                <option value="4">Rating 4</option>
+                                <option value="5">Rating 5</option>
+                            </select>
+                        </div>
+
+                    </div>
+            
+
+<div class="form-group">
+    <input type="submit" name="submit" value="Run" class="btn btn-primary btn-sm" style="float:right; margin:3%">
+</div>
+                    </form>
+                
+                
+            </div>
+            </div>
+    </div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='lga.js') }}"></script>
+<script>
+        const formSelect = document.getElementById('form-selector')
+  ,   myForms    = document.getElementById('my-forms');
+        formSelect.oninput=()=>{ myForms.className = `f-${formSelect.value}` }
+    </script>
+{% endblock %}

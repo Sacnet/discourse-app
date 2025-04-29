@@ -1,0 +1,29 @@
+:root {
+  --bs-primary: #007bff;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Roboto:wght@400;500&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+    font-family: 'Lora', serif;
+}
+
+.why_us {
+  background: url("../images/why_us.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+#quick_facts {
+  background: url("../images/bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.hero_bg {
+  background: url("../images/hero.jpg") no-repeat center center fixed;
+  background-size: cover;
+}

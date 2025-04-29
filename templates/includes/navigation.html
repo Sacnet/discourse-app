@@ -1,0 +1,57 @@
+
+	<!-- [ Header ] start -->
+	<header class="navbar pcoded-header navbar-expand-lg navbar-light headerpos-fixed header-blue" style="background:#ffffff">
+		
+			
+    <div class="m-header">
+        <a class="mobile-menu" id="mobile-collapse" href="#"><span></span></a>
+        <a href="#" class="b-brand">
+            <!-- ========   change your logo hear   ============ -->
+            <p style="font-weight: bold; font-size: 20px; color: rgba(22, 170, 131);">DiscAPP</p>
+            
+        </a>
+        <a href="#" class="mob-toggler">
+            <i class="feather icon-more-vertical"></i>
+        </a>
+    </div>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+                <a href="#" class="pop-search"><i class="feather icon-search"></i></a>
+                <div class="search-bar">
+                    <input type="text" class="form-control border-0 shadow-none" placeholder="Search here">
+                    <button type="button" class="btn-close" aria-label="Close">
+                    </button>
+                </div>
+            </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+            <li>
+                <div class="dropdown drp-user">
+                    <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
+                      <span style="color:rgb(22, 170, 131)">
+                        Hi, {{session.surname}}
+                    </span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end profile-notification">
+                        <div class="pro-head">
+                           
+                            <span>
+                              {{session.surname}}
+                            </span>
+                        </div>
+                        <ul class="pro-body">
+                            <li>
+                                <a href="" onclick="return funLogout()"
+                                   class="dropdown-item"><i
+                                        class="feather icon-lock"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    
+
+</header>
+<!-- [ Header ] end -->

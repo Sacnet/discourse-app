@@ -1,0 +1,79 @@
+{% extends 'adminpossed_dashboard.html' %}
+{% block body %}
+<div class="container">
+    <div class="col-12">
+        <div class="bg-white">
+            <div class="card" style="margin:10%;width:100%">
+            <div class="card-header" style="background:rgba(22, 170, 131)">
+                <h2 style="color:#fff;font-family: Montserrat;">Main Admin - Dashboard</h2>
+                
+            </div>
+                      
+                <div class="card-body">
+                    <div style="overflow-x:auto;">
+            <table id="empTable" class="table table-striped table-bordered display dataTable" style="width:50%; font-size: 12px;">
+                <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>Name</th>
+                        <th>Phone Number</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                        <th>Institution</th>
+                        <th>Qualification</th>
+                        <th>Date Registered</th>
+                        <th>Role</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for data in crustat %}
+                    <tr>
+                        <td>{{loop.index}}</td>
+                        <td>{{data.title}} {{data.fullname}}</td>
+                        <td>{{data.phoneno}}</td>
+                        <td>{{data.email}}</td>
+                        <td>{{data.gender}}</td>
+                        <td>{{data.institution}}</td>
+                        <td>{{data.qualification}}</td>
+                        <td>{{data.created_on}}</td>
+                        <td><a href="/roleedit/{{data.id}}">{{data.role}}</a></td>
+                    
+                        <td>
+                        
+                            {% if data.statuss==0 %}
+                            <a href="/accedit/{{data.id}}" onclick="return confirm('Are you sure you want to suspend this member account?')"><i class="fas fa-toggle-off" style="color:red"></i></a>
+                        {% else %}
+                        <a href="/accedit/{{data.id}}" onclick="return confirm('Are you sure you want to activate this member account?')"><i class="fas fa-toggle-on" style="color:green"></i></a>
+                        {% endif %}
+                        
+                         | 
+                            <a href="/userdelete/{{data.id}}" class="btn btn-delete" onclick="return confirm('Are you sure you want to delete this member?')"><i class="fas fa-trash" style="color:red"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>S/N</th>
+                        <th>Name</th>
+                        <th>Phone Number</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+
+                        <th>Institution</th>
+                        <th>Qualification</th>
+                        <th>Date Registered</th>
+                        <th>Role</th>
+                        <th>Action</th>
+                    </tr>
+                </tfoot>
+            </table>
+            </div><br>
+                
+            </div>
+            </div>
+    </div>
+    </div>
+</div>
+{% endblock %}

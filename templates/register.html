@@ -1,0 +1,319 @@
+{% extends 'layout.html' %}
+{% block body %}
+<main>
+  <nav class="navbar navbar-expand-md navbar-light">
+    <div class="container">
+        <a class="navbar-brand" href="/" style="font-size:30px;color:rgb(22, 170, 131);font-family: Montserrat;
+                          font-weight: Bold;opacity: 1;">DiscApp</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav" >
+          <ul class="navbar-nav ms-auto" style="float:right">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about_us.html">About Us</a>
+            </li>
+           
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="report.html">Report</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/register">Register</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="/login">Sign In</a>
+          </li>
+        </ul>
+        </div>
+    </div>
+  </nav>
+ <section class="d-flex align-items-center" style="background-image:url('static/assets/img/carousel/caros6.png');
+ background-color: #cccccc; background-size: cover;background-position: center; display: flex;flex-direction: column;justify-content: center;height:80vh; margin-top:13%;margin-bottom:10%;">
+            <div class="container"><div class="text-center text-md-center">
+              
+          </div>
+          
+              <div class="card" style="width:60%; border-bottom:auto; margin-left:15%;background:#ffffff; margin-top:0%; height:auto">
+                  <div class="card-header">
+                      <h1 class="mb-0 h3" style="font-size:20px;color:rgb(22, 170, 131);font-family: Montserrat;
+              font-weight: Bold;opacity: 1;">Discourse Miner | Registration Form</h1>
+              <hr>
+                  </div>
+                 
+                  <div class="card-body">
+							    <form action="/register" method="POST" style="margin-left:7%;">
+                    <div class="row">
+                    <div class="col">
+                      <label for="name">Title</label>
+                      <div class="input-group mb-4 form-group">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text"><span class="fas fa-user"></span>
+                          </div>
+                          <select name="title" id="" class="form-control">
+                            <option value="">Select...</option>
+                            <option value="Prof.">Prof.</option>
+                            <option value="Dr.">Dr.</option>
+                            <option value="Engr.">Engr.</option>
+                            <option value="Mr.">Mr.</option>
+                            <option value="Mrs.">Mrs.</option>
+                            <option value="Miss.">Miss.</option>
+                          </select>
+                      </div>
+                  </div>
+                  </div>
+                  <div class="row">
+
+                  <div class="col" >
+                    <label for="name">Surname</label>
+                    <div class="input-group mb-4 form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><span class="fas fa-user"></span>
+                        </div>
+                        <input name="surname" class="form-control" placeholder="John Doe" type="text" required>
+                    </div>
+                </div>
+                <div class="col">
+                  <label for="name">Othernames</label>
+                  <div class="input-group mb-4 form-group">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text"><span class="fas fa-user"></span></span>
+                      </div>
+                      <input name="othernames" class="form-control" id="name" placeholder="John Doe" type="text" required>
+                  </div>
+              </div>
+                  </div>
+                  <div class="row">
+                                    <div class="col">
+                                      <label for="email">Email</label>
+                                      <div class="input-group mb-4 form-group">
+                                          <div class="input-group-prepend">
+                                              <span class="input-group-text"><span class="fas fa-envelope"></span></span>
+                                          </div>
+                                          <input name="email" type="email" class="form-control" id="email" placeholder="example@company.com" required>   
+                                      </div>
+                                  </div>
+                                  <div class="col" style="margin-left:2%">
+                                    <label for="name">Phone Number</label>
+                                    <div class="input-group mb-4 form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><span class="fas fa-user"></span></span>
+                                        </div>
+                                        <input name="phoneno" class="form-control" id="name" placeholder="+2347030002223" type="text" required>
+                                    </div>
+                                </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col">
+                          <label for="name">Gender</label>
+                          <div class="input-group mb-4 form-group">
+                              <div class="input-group-prepend">
+                                  <span class="input-group-text"><span class="fas fa-user"></span></span>
+                              </div>
+                              <select name="gender" id="" class="form-control">
+                                <option value="">Select...</option>
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                                
+                              </select>
+                          </div>
+                      </div>
+          </div>
+          <div class="row">
+                      <div class="col">
+                        <label for="name">Highest Qualification</label>
+                        <div class="input-group mb-4 form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><span class="fas fa-user"></span>
+                            </div>
+                            
+                          
+                      
+                          <select name="qualif" id="" class="form-control">
+                            <option value="">Select Qualification...</option>
+                            <option value="BA">BA</option>
+                            <option value="BSc">BSc.</option>
+                            <option value="MA">MA</option>
+                            <option value="MSc">MSc</option>
+                            <option value="PhD">PhD</option>
+                            <option value="ECCE">ECCE</option>
+                            <option value="Other">Other</option>
+                            
+                          </select>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <label for="name">Field</label>
+                          <div class="input-group mb-4 form-group">
+                              <div class="input-group-prepend">
+                                  <span class="input-group-text"><span class="fas fa-user"></span></span>
+                              </div>
+                              <input name="field" class="form-control" id="field" placeholder="Linguistic" type="text" required>
+                          </div>
+                      </div>
+          
+                      </div>   
+                 
+          
+<div class="row">
+  <div class="col">
+    <label for="name">Institutions</label>
+    <div class="input-group mb-4 form-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><span class="fas fa-user"></span>
+        </div>
+        <input name="inst" type="text" class="form-control" id="inst" placeholder="e.g Obafemi Awolowo University, Ile-Ife" required>   
+                                     
+    </div>
+</div>
+<div class="col">
+  <label for="name">Area of Specialization</label>
+  <div class="input-group mb-4 form-group">
+      <div class="input-group-prepend">
+          <span class="input-group-text"><span class="fas fa-user"></span>
+      </div>
+         <input name="area" type="text" class="form-control" id="area" placeholder="e.g discourse analysis" required>   
+                              
+  </div>
+</div>
+</div>   
+<div class="row">
+  <div class="col">
+    <label for="password">Password</label>
+      <div class="input-group mb-4">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><span class="fas fa-unlock-alt"></span>
+        </div>
+        <input name="password" type="password" class="form-control" id="password" style="-webkit-text-security:disc;" placeholder="Password" aria-label="Password" required>
+        </div>
+       </div>
+
+                              <div class="col">
+                                <label for="password">Confirm Password</label>
+                                <div class="input-group mb-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><span class="fas fa-unlock-alt"></span></span>
+                                    </div>
+                                    <input name="conpassword" type="password" class="form-control" id="password" style="-webkit-text-security:disc;" placeholder="Password" aria-label="Password" required>
+                                </div>
+                            </div>
+                           </div>
+      <input type="submit" class="btn btn-primary btn-block" value="Create" style="background-color:rgb(22, 170, 131);">
+    </form>
+    <div class="d-block d-sm-flex justify-content-center align-items-center mt-4">
+    <p>Already have an account?
+        <a href="/login" style="color:rgba(11,81,62,1)">Click here</a>.
+      </p>
+      </div>
+  </div>
+  </div>
+  </div>
+  
+  <div>
+  </div>
+</div>
+
+</section>
+</main>
+<script src="{{ url_for('static', filename='vendor/bootstrap/dist/js/statelga.js') }}"></script>
+<script>
+    // The buttons to start & stop stream and to capture the image
+    //var btnStart = document.getElementById( "btn-start" );
+    //var btnStop = document.getElementById( "btn-stop" );
+    var btnCapture = document.getElementById( "btn-capture" );
+
+    // The stream & capture
+    var stream = document.getElementById( "stream" );
+    var capture = document.getElementById( "capture" );
+    var snapshot = document.getElementById( "snapshot" );
+    
+    // The video stream
+    var cameraStream = null;
+    
+    btnCapture.addEventListener( "click", captureSnapshot );
+
+    // Attach listeners
+    
+    // Start Streaming
+    function startStreaming() {
+    
+      var mediaSupport = 'mediaDevices' in navigator;
+    
+      if( mediaSupport && null == cameraStream ) {
+    
+        navigator.mediaDevices.getUserMedia( { video: true } )
+        .then( function( mediaStream ) {
+    
+          cameraStream = mediaStream;
+    
+          stream.srcObject = mediaStream;
+    
+          stream.play();
+        })
+        .catch( function( err ) {
+    
+          console.log( "Unable to access camera: " + err );
+        });
+      }
+      else {
+    
+        alert( 'Your browser does not support media devices.' );
+    
+        return;
+      }
+    }
+    
+    // Stop Streaming
+    function stopStreaming() {
+    
+      if( null != cameraStream ) {
+    
+        var track = cameraStream.getTracks()[ 0 ];
+    
+        track.stop();
+        stream.load();
+    
+        cameraStream = null;
+      }
+    }
+    
+    function captureSnapshot() {
+    
+      if( null != cameraStream ) {
+    
+        var ctx = capture.getContext( '2d' );
+        var img = new Image();
+    
+        ctx.drawImage( stream, 0, 0, capture.width, capture.height );
+      
+        img.src		= capture.toDataURL( "image/png" );
+        img.width	= 370;
+        img.height	= 320;
+        //console.log(capture.toDataURL( "image/png" ));
+        snapshot.innerHTML = '';
+    
+        snapshot.appendChild( img );
+        var d1 = capture.toDataURL("image/png");
+        var res = d1.replace("data:image/png;base64,", "");
+        console.log(res);
+        snapshot.innerHTML = '';
+        snapshot.appendChild( img );
+        $("#image_hidden").val(res)    
+
+      }
+    }
+    window.onload = function() {
+       startStreaming();
+       captureSnapshot();
+    }
+    
+    </script>
+{% endblock %}
