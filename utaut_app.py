@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import datetime
 import os
+import matplotlib.pyplot as plt
 st.set_page_config(page_title="UTAUT Survey", layout="centered")
 
 st.title("📊 UTAUT-Based Technology Adoption Survey on Discourse App")
@@ -72,7 +73,7 @@ if st.button("Submit Survey"):
         df.to_csv("utaut_responses.csv", mode="a", header=not pd.io.common.file_exists("utaut_responses.csv"), index=False)
 
         st.success("✅ Thank you! Your response has been recorded.")
-import matplotlib.pyplot as plt
+
 
 # Mapping Likert responses to numeric scale (optional)
 likert_map = {
