@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import datetime
 import os
-import matplotlib as plt
+import matplotlib.pyplot as plt
 st.set_page_config(page_title="UTAUT Survey", layout="centered")
 
 st.title("📊 UTAUT-Based Technology Adoption Survey on Discourse App")
